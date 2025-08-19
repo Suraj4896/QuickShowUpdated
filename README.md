@@ -85,59 +85,6 @@ A movie ticket booking platform with real-time seat selection and admin manageme
 ## Tech Stack
 React, Express, MongoDB, Clerk, Inngest, Tailwind CSS
 
-## 📊 Data Flow Diagram (DFD) – QuickShow
-
-```mermaid
-flowchart TD
-
-%% External Entities
-User([User]):::ext
-Admin([Admin]):::ext
-Payment([Payment Gateway]):::ext
-
-%% Processes
-Auth{{Clerk Authentication}}
-Booking{{Booking System}}
-Seat{{Seat Management}}
-PaymentP{{Payment Processing}}
-AdminM{{Admin Management}}
-Inngest{{Inngest Job Scheduler}}
-
-%% Data Stores
-DB[(MongoDB Database)]
-Movies[(Movies Collection)]
-Users[(Users Collection)]
-Bookings[(Bookings Collection)]
-Payments[(Payments Collection)]
-
-%% Flows
-User -->|Login/Register| Auth
-Admin -->|Login| Auth
-Auth --> Users
-
-User -->|Browse Movies| Movies
-User -->|Book Ticket| Booking
-Booking --> Seat
-Seat --> Bookings
-Booking --> PaymentP
-PaymentP --> Payment
-Payment --> PaymentP
-PaymentP --> Payments
-Inngest --> Seat
-
-Admin -->|Manage Movies/Shows| AdminM
-AdminM --> Movies
-AdminM --> Bookings
-AdminM --> Payments
-
-%% Styling
-classDef ext fill=#f4a261,stroke=#333,stroke-width=2px;
-classDef process fill=#2a9d8f,stroke=#fff,stroke-width=2px,color=white;
-classDef store fill=#e9c46a,stroke=#333,stroke-width=2px;
-
-class Auth,Booking,Seat,PaymentP,AdminM,Inngest process;
-class DB,Movies,Users,Bookings,Payments store;
-
 
 ## Setup Instructions
 ```bash
