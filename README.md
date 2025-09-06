@@ -1,3 +1,7 @@
+
+Deployed Link: https://quick-show-client-updated.vercel.app/
+
+
 Hero Section:
 
 <img width="1905" height="915" alt="image" src="https://github.com/user-attachments/assets/ad61d226-5e37-431d-ba7b-bb6e2bbbc84e" />
